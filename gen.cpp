@@ -39,6 +39,8 @@ int main(int argc,char* argv[]){
     system("del link.txt");
     freopen("Vink.py","w",stdout);
     printf("from mitmproxy import ctx,http\nimport json,os\nclass ModifyResponse:\n    def response(self,flow):\n        if flow.request.url.startswith(\"https://padapp.msyk.cn/ws/app/padLogin\"):\n            with open('data.json','rb') as f:\n                res = json.load(f)\n            flow.response.set_text(json.dumps(res))\naddons = [\n    ModifyResponse()\n]\n");
+    fclose(stdin);
+    fclose(stdout);
     system("mitmdump.exe --script Vink.py -p 8888");
     return 0;
 }
