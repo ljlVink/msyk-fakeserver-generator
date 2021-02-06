@@ -1,5 +1,5 @@
 # msyk-fakeserver-generator
-美师优课登录信息提取
+美师优课登录信息提取 配合gen达到在其他设备过验证登录
 
 windows下
 
