@@ -17,6 +17,20 @@ windows下
 
 # 程序怎么用?
 
+首先 你要判断你的平板类型
+
+#### 你的平板如果是联想
+
+gen1和gen都行
+
+#### 你的平板如果是华为
+
+如果安卓版本号小于10:
+编译gen
+
+如果安卓版本号大于等于10:
+编译gen1
+
 在realease里下载成品的程序解压到一个文件夹里
 
 用cmd定位到目标文件夹
@@ -25,9 +39,17 @@ windows下
 
 gen.exe 你的账号 你的密码  mac地址第1个 mac地址第2个 mac地址第3个 mac地址第4个 mac地址第5个 mac地址第6个
 
+gen1.exe 你的账号 你的密码 设备SN
+
 ## 举个例子
 
 gen.exe abcabc 123456 AB CD EF 1A 1B 1C
+
+gen1.exe abcabc 123456 9cqnu1111111111
+
+gen1.exe abcabc 123456 HA666666
+
+
 
 接下来的步骤程序会自动执行
 
@@ -67,26 +89,9 @@ ipconfig里找到你电脑所在网络
 
 执行gen.exe 方法在前面说过
 
-等出现loaded Vink.py............port:8888
-
-的时候
-
 这时，打开美师优课 随便输入一个账号密码都行，这样就能在其他设备登录了
 
-# 什么原理?执行了什么?
+#### 登完记得断开你的热点
 
-每个设备都有一个特定的mac地址，mac是辨识设备的，防止瞎登录，至于sn码也有记录，但是似乎没有采集限制 
 
-通过之前的抓包抓到了登录地址
-
-有username auth mac version  是有用的
-
-通过反编译了美师优课的程序 auth是这么定义的
-
-auth=MD5(username+password+HHOO)
-
-就出来个这个，凑出来一个链接
-
-下载这个链接，如果没错的话就是你成功的登录信息了
-
-用mitmproxy (mitmdump) 抓包改登录信息，这样就能登录了
+[奇怪小技巧 不设置代理直接起飞](https://www.baidu.com/s?wd=mitmproxy%20transparent%20windows)

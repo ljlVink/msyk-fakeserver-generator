@@ -11,13 +11,13 @@ char Hash[100];
 char mod3a[5]="%3A";
 char ans[100000],ans1[100000],anss[100000],ans2[100000];
 char wget[100]="wget --no-check-certificate -O data.json ";
-char ver[100]="&versionCode=28";
+char ver[100]="&versionCode=29";
 int main(int argc,char* argv[]){
-    if(argc!=9){
+    if(argc!=4){
         printf("ERROR\n");
         if(argc==1){
             printf("No Arguments\n");
-            printf("Usage:gen.exe acount password mac mac mac mac mac mac\nexample gen.exe Myaccount Mypassword AA AA AA AA AA AA\n");
+            printf("Usage:gen1.exe acount password sn\nexample gen.exe Myaccount Mypassword SERIALNUMBER\n");
         }
         else printf("Arguments error\n");
         exit(0);
@@ -28,9 +28,8 @@ int main(int argc,char* argv[]){
     freopen("hash.txt","r",stdin);
     scanf("%s",&Hash);
     freopen("link.txt","w",stdout);
-    sprintf(ans,"https://padapp.msyk.cn/ws/app/padLogin?userName=%s&auth=%s&macAddress=",argv[1],Hash);
-    sprintf(anss,"%s%c%d%s%s%c%d%s%s%c%d%s%s%c%d%s%s%c%d%s%s",argv[3],'%',3,"A",argv[4],'%',3,"A",argv[5],'%',3,"A",argv[6],'%',3,"A",argv[7],'%',3,"A",argv[8]);
-    sprintf(ans2,"%s%s%s",ans,anss,ver);
+    sprintf(ans,"https://padapp.msyk.cn/ws/app/padLogin?userName=%s&auth=%s&sn=%s",argv[1],Hash,argv[3]);
+    sprintf(ans2,"%s%s",ans,ver);
     sprintf(ans1,"%s%c%s%c",wget,'"',ans2,'"');
     system(ans1);
     fclose(stdin);
