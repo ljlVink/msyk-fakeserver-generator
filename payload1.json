@@ -1,0 +1,12 @@
+{
+    "code": "10000",
+    "data": {
+        "patchAddr": null,
+        "isMust": 1,
+        "addr": "http://xxx/main.apk",
+        "version": "9.10.2",
+        "updateType": true
+    },
+    "ip": "6.6.6.6",
+    "message": "success"
+}
